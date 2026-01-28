@@ -55,14 +55,16 @@
   position: relative;
 }
 
-/* TAMPA TUDO por 2s */
-.overlay-full {
+/* BLUR TOTAL inicial */
+.overlay-blur {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari */
+  background: rgba(255,255,255,0.4); /* ajuda no efeito */
   z-index: 20;
   pointer-events: none;
 }
@@ -94,8 +96,8 @@
 
 <div class="hotmart-wrapper">
 
-  <!-- tampa tudo inicialmente -->
-  <div class="overlay-full" id="overlay-full"></div>
+  <!-- blur total inicial -->
+  <div class="overlay-blur" id="overlay-blur"></div>
 
   <!-- caixas fixas -->
   <div class="overlay-top"></div>
@@ -109,14 +111,14 @@
 <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 
 <script>
-  // Hotmart carrega normal (sem delay)
+  // Hotmart carrega normal
   checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
 
-  // Remove a tampa total após 2s
+  // Remove o blur total após 2.5s
   setTimeout(function () {
-    const full = document.getElementById('overlay-full');
-    if (full) full.remove();
-  }, 3000);
+    const blur = document.getElementById('overlay-blur');
+    if (blur) blur.remove();
+  }, 2500);
 </script>
 
          <!-- HOTMART - Sales Funnel Widget -->
