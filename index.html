@@ -51,9 +51,15 @@
           
           <p><strong>1️⃣ Hauptpaket:</strong></p>
 
-        <style>
+       <style>
 .hotmart-wrapper {
   position: relative;
+}
+
+/* ESCONDE APENAS O FUNIL NO INÍCIO */
+#hotmart-sales-funnel {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Caixa branca de cima pra baixo (35%) */
@@ -94,9 +100,17 @@
 <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 
 <script>
+  // Carrega Hotmart após 1s
   setTimeout(function () {
     checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-  }, 1000); // delay de 1 segundo
+  }, 1000);
+
+  // Mostra o funil após 2s (overlays já ativos)
+  setTimeout(function () {
+    const funnel = document.getElementById('hotmart-sales-funnel');
+    funnel.style.opacity = '1';
+    funnel.style.visibility = 'visible';
+  }, 2000);
 </script>
 
          <!-- HOTMART - Sales Funnel Widget -->
