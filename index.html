@@ -51,33 +51,52 @@
           
           <p><strong>1️⃣ Hauptpaket:</strong></p>
 
-          <style>
+        <style>
 .hotmart-wrapper {
   position: relative;
 }
 
-.hotmart-overlay {
+/* Caixa branca de cima pra baixo (30%) */
+.overlay-top {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 50%;
-  backdrop-filter: blur(8px);
-  background: rgba(255,255,255,0.4); /* ajuda no efeito */
+  height: 30%;
+  background: #fff;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Caixa branca de baixo pra cima (48%) */
+.overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48%;
+  background: #fff;
   z-index: 10;
   pointer-events: none;
 }
 </style>
 
 <div class="hotmart-wrapper">
-  <div class="hotmart-overlay"></div>
 
+  <div class="overlay-top"></div>
+  <div class="overlay-bottom"></div>
+
+  <!-- HOTMART - Sales Funnel Widget -->
   <div id="hotmart-sales-funnel"></div>
+
 </div>
 
 <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+
 <script>
-checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+  setTimeout(function () {
+    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+  }, 1000); // delay de 1 segundo
 </script>
 
          <!-- HOTMART - Sales Funnel Widget -->
