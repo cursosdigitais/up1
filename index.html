@@ -55,18 +55,6 @@
   position: relative;
 }
 
-/* TAMPA TUDO por 1s */
-.overlay-full {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  z-index: 20;
-  pointer-events: none;
-}
-
 /* Caixa branca de cima pra baixo (35%) */
 .overlay-top {
   position: absolute;
@@ -94,9 +82,6 @@
 
 <div class="hotmart-wrapper">
 
-  <!-- tampa tudo inicialmente -->
-  <div class="overlay-full" id="overlay-full"></div>
-
   <!-- caixas fixas -->
   <div class="overlay-top"></div>
   <div class="overlay-bottom"></div>
@@ -109,14 +94,8 @@
 <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 
 <script>
-  // Hotmart carrega NORMAL (sem delay)
+  // Hotmart carrega normal
   checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
-
-  // Remove a tampa total após 2s
-  setTimeout(function () {
-    const full = document.getElementById('overlay-full');
-    if (full) full.remove();
-  }, 2500);
 </script>
 
          <!-- HOTMART - Sales Funnel Widget -->
