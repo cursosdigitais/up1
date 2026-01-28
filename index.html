@@ -50,6 +50,35 @@
           <p>Vielen Dank für Ihren Kauf! Unten finden Sie den Zugriff auf alle Inhalte, die in Ihrem Paket enthalten sind.</p>
           
           <p><strong>1️⃣ Hauptpaket:</strong></p>
+          <style>
+.hotmart-wrapper {
+  position: relative;
+}
+
+.hotmart-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* metade */
+  background: #fff;
+  z-index: 10;
+  pointer-events: none; /* não bloqueia cliques abaixo */
+}
+</style>
+
+<div class="hotmart-wrapper">
+  <div class="hotmart-overlay"></div>
+
+  <!-- HOTMART - Sales Funnel Widget -->
+  <div id="hotmart-sales-funnel"></div>
+</div>
+
+<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+<script>
+checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+</script>
+
 <!-- HOTMART - Sales Funnel Widget -->
 <!--- sales funnel container --->
 <div id="hotmart-sales-funnel"></div>
